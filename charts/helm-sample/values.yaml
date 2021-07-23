@@ -1,0 +1,25 @@
+---
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+replicaCount: 1
+image:
+  repository: "mikakatua/my-webapp"
+  tag: latest
+  pullPolicy: Always
+deployment:
+  name: k8s-webapp-deploy
+service:
+  name: k8s-webapp-svc
+  type: ClusterIP
+  externalPort: 8080
+  internalPort: 38080
+ingress:
+  name: k8s-webapp-ingress
+  host: webapp.localhost
+resources:
+  limits:
+   cpu: 100m
+   memory: 100Mi
+  requests:
+   cpu: 100m
+   memory: 100Mi
